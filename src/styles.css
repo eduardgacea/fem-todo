@@ -1,0 +1,80 @@
+:root {
+    /* colors */
+    /* primary */
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-bright-blue: hsl(220, 98%, 61%);
+    /* gradients */
+    --grad-check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+    /* shadows */
+    --shadow-transparent-black: hsla(0, 0%, 0%, 0.5);
+    /* light theme */
+    --clr-lt-very-light-gray: hsl(0, 0%, 98%);
+    --clr-lt-very-light-grayish-blue: hsl(236, 33%, 92%);
+    --clr-lt-light-grayish-blue: hsl(233, 11%, 84%);
+    --clr-lt-dark-grayish-blue: hsl(236, 9%, 61%);
+    --clr-lt-very-dark-grayish-blue: hsl(235, 19%, 35%);
+    /* dark theme */
+    --clr-dt-very-dark-blue: hsl(235, 21%, 11%);
+    --clr-dt-very-dark-desaturated-blue: hsl(235, 24%, 19%);
+    --clr-dt-light-grayish-blue: hsl(234, 39%, 85%);
+    --clr-dt-light-grayish-blue-hover: hsl(236, 33%, 92%);
+    --clr-dt-dark-grayish-blue: hsl(234, 11%, 52%);
+    --clr-dt-very-dark-grayish-blue: hsl(233, 14%, 35%);
+    --clr-dt-very-dark-grayish-blue: hsl(237, 14%, 26%);
+
+    /* typography */
+    --fs-m: 1.125rem;
+    --ff-primary: "Josefin Sans", sans-serif;
+    --fw-regular: 400;
+    --fw-bold: 700;
+
+    /* sizes */
+    --size-100: 0.25rem;
+    --size-150: 0.35rem;
+    --size-200: 0.5rem;
+    --size-300: 0.75rem;
+    --size-350: 0.85rem;
+    --size-400: 1rem;
+    --size-450: 1.15rem;
+    --size-500: 1.25rem;
+    --size-600: 1.5rem;
+    --size-700: 1.75rem;
+    --size-800: 2rem;
+    --size-900: 2.5rem;
+    --size-1000: 3rem;
+    --size-1100: 4rem;
+    --size-1200: 5rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: var(--fs-m);
+    font-family: var(--ff-primary);
+}
+
+img {
+    vertical-align: bottom;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: var(--fs-m);
+    font-weight: var(--fw-regular);
+}
+
+.light {
+    background-color: var(--clr-lt-very-light-gray);
+}
+
+.dark {
+    background-color: var(--clr-dt-very-dark-blue);
+}
