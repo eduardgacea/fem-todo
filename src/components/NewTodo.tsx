@@ -26,7 +26,8 @@ const Container = styled.div<ContainerProps>`
     /* main container and input selector */
     &,
     & > form > input[type="text"] {
-        background-color: ${props => (props.$theme === "light" ? "var(--clr-white)" : "var(--clr-dt-very-dark-blue)")};
+        background-color: ${props =>
+            props.$theme === "light" ? "var(--clr-white)" : "var(--clr-dt-very-dark-desaturated-blue)"};
         border-radius: var(--size-200);
     }
 
@@ -53,7 +54,8 @@ const Container = styled.div<ContainerProps>`
     }
 
     & > form > input[type="text"]::placeholder {
-        color: ${props => (props.$theme === "light" ? "var(--clr-lt-dark-grayish-blue)" : "var(--clr-white)")};
+        color: ${props =>
+            props.$theme === "light" ? "var(--clr-lt-dark-grayish-blue)" : "var(--clr-dt-dark-grayish-blue)"};
     }
 `;
 

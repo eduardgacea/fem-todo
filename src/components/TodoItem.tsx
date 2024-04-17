@@ -16,16 +16,25 @@ type TodoItemProps = {
     onDrop: () => void;
 };
 
+type MainContainerProps = {
+    $theme: Theme;
+};
+
 type DescriptionProps = {
     $status: Status;
     $theme: Theme;
 };
 
-const MainContainer = styled.div`
+const MainContainer = styled.div<MainContainerProps>`
     display: flex;
     align-items: center;
     padding: var(--size-600) 0;
     border-bottom: 1px solid var(--clr-lt-very-light-grayish-blue);
+    border-bottom: 1px solid
+        ${props =>
+            props.$theme === "light"
+                ? "var(--clr-lt-very-light-grayish-blue)"
+                : "var(--clr-dt-very-dark-grayish-blue)"};
 `;
 
 const DecoratorContainer = styled.div`
@@ -50,9 +59,13 @@ const Description = styled.p<DescriptionProps>`
     color: ${props => {
         switch (props.$theme) {
             case "light":
-                return props.$status === "active" ? "green" : "red";
+                return props.$status === "active"
+                    ? "var(--clr-lt-very-dark-grayish-blue)"
+                    : "var(--clr-lt-light-grayish-blue)";
             case "dark":
-                return props.$status === "active" ? "blue" : "white";
+                return props.$status === "active"
+                    ? "var(--clr-dt-light-grayish-blue)"
+                    : "var(--clr-dt-very-dark-grayish-blue)";
         }
     }};
 `;
@@ -69,6 +82,7 @@ function TodoItem({ todo, i, onDragStart, onDragEnter, onDrop }: TodoItemProps) 
     return (
         <MainContainer
             as="li"
+            $theme={theme}
             draggable="true"
             onDragStart={handleDragStart}
             onDragEnter={handleDragEnter}

@@ -1,4 +1,7 @@
+import { ThemeContext } from "../contexts/ThemeContextProvider";
 import { Status } from "../types/todosTypes";
+import { Theme } from "../types/themeTypes";
+import { useContext } from "react";
 
 import styled from "styled-components";
 
@@ -8,6 +11,7 @@ type DecoratorProps = {
 };
 
 type StyledDecoratorProps = {
+    $theme: Theme;
     $status: Status | undefined;
 };
 
@@ -19,16 +23,23 @@ const StyledDecorator = styled.span<StyledDecoratorProps>`
     height: 26px;
     border-radius: 50%;
     border: ${props => {
-        if (!props.$status || props.$status === "active") return "1px solid var(--clr-lt-very-light-grayish-blue)";
-        return "none";
+        const status = props.$status;
+        switch (props.$theme) {
+            case "light":
+                return status === "active" || !status ? "1px solid var(--clr-lt-very-light-grayish-blue)" : "none";
+            case "dark":
+                return status === "active" || !status ? "1px solid var(--clr-dt-very-dark-grayish-blue)" : "none";
+        }
     }};
     background-image: ${props => (props.$status === "completed" ? "var(--grad-check-background)" : "none")};
     cursor: pointer;
 `;
 
 function Decorator({ status, onClick }: DecoratorProps) {
+    const { theme } = useContext(ThemeContext);
+
     return (
-        <StyledDecorator $status={status} onClick={onClick}>
+        <StyledDecorator $theme={theme} $status={status} onClick={onClick}>
             {status === "completed" && <img src="icon-check.svg" />}
         </StyledDecorator>
     );
