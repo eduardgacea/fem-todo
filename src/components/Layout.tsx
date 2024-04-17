@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 const StyledLayout = styled.div`
-    max-width: 768px;
+    max-width: 576px;
     margin: 0 auto;
-    transform: translateY(5rem);
+    transform: translateY(var(--size-1300));
     display: flex;
     flex-direction: column;
-    gap: var(--size-400);
 `;
 
 function Layout({ children }: { children: React.ReactNode }) {

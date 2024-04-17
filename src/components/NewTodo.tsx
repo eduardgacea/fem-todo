@@ -14,7 +14,9 @@ type ContainerProps = {
 
 const Container = styled.div<ContainerProps>`
     align-items: center;
-    box-shadow: 0 0 12px 3px var(--shadow-transparent-black);
+    margin-top: var(--size-1000);
+    margin-bottom: var(--size-700);
+    padding: 0 var(--size-400);
 
     /* main container and decorator container selector */
     &,
@@ -44,11 +46,15 @@ const Container = styled.div<ContainerProps>`
     & > form > input[type="text"] {
         width: 100%;
         font-family: var(--ff-primary);
-        font-size: var(--fs-m);
-        padding: var(--size-500) var(--size-400);
+        font-size: var(--fs-l);
+        padding: var(--size-600) 0;
         border: none;
         outline: none;
         color: ${props => (props.$theme === "light" ? "var(--clr-dt-very-dark-blue)" : "var(--clr-white)")};
+    }
+
+    & > form > input[type="text"]::placeholder {
+        color: ${props => (props.$theme === "light" ? "var(--clr-lt-dark-grayish-blue)" : "var(--clr-white)")};
     }
 `;
 

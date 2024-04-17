@@ -8,7 +8,6 @@ import styled from "styled-components";
 const StyledTodoList = styled.div`
     display: flex;
     flex-direction: column;
-    gap: var(--size-600);
     background: transparent;
 `;
 

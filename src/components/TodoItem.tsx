@@ -21,16 +21,24 @@ type DescriptionProps = {
     $theme: Theme;
 };
 
-const Container = styled.div`
+const MainContainer = styled.div`
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    padding: var(--size-600) var(--size-400);
+    border-bottom: 1px solid var(--clr-lt-very-light-grayish-blue);
+`;
 
-    & > div {
-        display: flex;
-        justify-content: center;
-        flex-basis: 52px;
-    }
+const DecoratorContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-basis: 52px;
+`;
+
+const DescriptionContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    padding-right: var(--size-400);
+    flex: 1;
 `;
 
 const Description = styled.p<DescriptionProps>`
@@ -55,15 +63,23 @@ function TodoItem({ todo, i, onDragStart, onDragEnter, onDrop }: TodoItemProps) 
     const handleDrop = () => onDrop();
 
     return (
-        <Container draggable="true" onDragStart={handleDragStart} onDragEnter={handleDragEnter} onDragEnd={handleDrop}>
-            <div>
+        <MainContainer
+            as="li"
+            draggable="true"
+            onDragStart={handleDragStart}
+            onDragEnter={handleDragEnter}
+            onDragEnd={handleDrop}
+        >
+            <DecoratorContainer>
                 <Decorator onClick={() => toggleState(id)} />
-            </div>
-            <Description $status={status} $theme={theme}>
-                {description}
-            </Description>
-            <img src="icon-cross.svg" onClick={() => removeTodo(id)} />
-        </Container>
+            </DecoratorContainer>
+            <DescriptionContainer>
+                <Description $status={status} $theme={theme}>
+                    {description}
+                </Description>
+                <img src="icon-cross.svg" onClick={() => removeTodo(id)} />
+            </DescriptionContainer>
+        </MainContainer>
     );
 }
 

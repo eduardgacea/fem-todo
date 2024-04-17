@@ -6,7 +6,7 @@
     /* gradients */
     --grad-check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
     /* shadows */
-    --shadow-transparent-black: hsla(0, 0%, 0%, 0.5);
+    --shadow-transparent-black: 0 8px 16px 1px rgba(0, 0, 0, 0.1);
     /* light theme */
     --clr-lt-very-light-gray: hsl(0, 0%, 98%);
     --clr-lt-very-light-grayish-blue: hsl(236, 33%, 92%);
@@ -24,6 +24,7 @@
 
     /* typography */
     --fs-m: 1.125rem;
+    --fs-l: 1.2rem;
     --ff-primary: "Josefin Sans", sans-serif;
     --fw-regular: 400;
     --fw-bold: 700;
@@ -44,6 +45,7 @@
     --size-1000: 3rem;
     --size-1100: 4rem;
     --size-1200: 5rem;
+    --size-1300: 6.5rem;
 }
 
 * {

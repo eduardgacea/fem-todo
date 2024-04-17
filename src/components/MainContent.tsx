@@ -13,8 +13,8 @@ type ContainerProps = {
 
 const Container = styled.div<ContainerProps>`
     background-color: ${props => (props.$theme === "light" ? "var(--clr-white)" : "var(--clr-dt-very-dark-blue)")};
-    box-shadow: 0 0 12px 3px var(--shadow-transparent-black);
-    padding: var(--size-400) 0;
+    box-shadow: var(--shadow-transparent-black);
+    padding: 0 0 var(--size-400) 0;
     border-radius: var(--size-200);
 `;
 
