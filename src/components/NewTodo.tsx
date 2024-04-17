@@ -16,7 +16,6 @@ const Container = styled.div<ContainerProps>`
     align-items: center;
     margin-top: var(--size-1000);
     margin-bottom: var(--size-700);
-    padding: 0 var(--size-400);
 
     /* main container and decorator container selector */
     &,
@@ -34,7 +33,7 @@ const Container = styled.div<ContainerProps>`
     /* decorator container selector */
     & > div {
         justify-content: center;
-        flex-basis: 52px;
+        flex-basis: var(--size-1200);
     }
 
     /* form selector */

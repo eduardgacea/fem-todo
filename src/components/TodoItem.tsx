@@ -24,21 +24,25 @@ type DescriptionProps = {
 const MainContainer = styled.div`
     display: flex;
     align-items: center;
-    padding: var(--size-600) var(--size-400);
+    padding: var(--size-600) 0;
     border-bottom: 1px solid var(--clr-lt-very-light-grayish-blue);
 `;
 
 const DecoratorContainer = styled.div`
     display: flex;
     justify-content: center;
-    flex-basis: 52px;
+    flex-basis: var(--size-1200);
 `;
 
 const DescriptionContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    padding-right: var(--size-400);
+    padding-right: var(--size-700);
     flex: 1;
+
+    & > img:hover {
+        cursor: pointer;
+    }
 `;
 
 const Description = styled.p<DescriptionProps>`
@@ -71,7 +75,7 @@ function TodoItem({ todo, i, onDragStart, onDragEnter, onDrop }: TodoItemProps) 
             onDragEnd={handleDrop}
         >
             <DecoratorContainer>
-                <Decorator onClick={() => toggleState(id)} />
+                <Decorator status={status} onClick={() => toggleState(id)} />
             </DecoratorContainer>
             <DescriptionContainer>
                 <Description $status={status} $theme={theme}>

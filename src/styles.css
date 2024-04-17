@@ -4,7 +4,7 @@
     --clr-white: hsl(0, 0%, 100%);
     --clr-bright-blue: hsl(220, 98%, 61%);
     /* gradients */
-    --grad-check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+    --grad-check-background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
     /* shadows */
     --shadow-transparent-black: 0 8px 16px 1px rgba(0, 0, 0, 0.1);
     /* light theme */
@@ -20,7 +20,7 @@
     --clr-dt-light-grayish-blue-hover: hsl(236, 33%, 92%);
     --clr-dt-dark-grayish-blue: hsl(234, 11%, 52%);
     --clr-dt-very-dark-grayish-blue: hsl(233, 14%, 35%);
-    --clr-dt-very-dark-grayish-blue: hsl(237, 14%, 26%);
+    --clr-dt-darkest-grayish-blue: hsl(237, 14%, 26%);
 
     /* typography */
     --fs-m: 1.125rem;

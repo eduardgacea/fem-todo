@@ -1,18 +1,37 @@
+import { Status } from "../types/todosTypes";
+
 import styled from "styled-components";
 
 type DecoratorProps = {
+    status?: Status;
     onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 };
 
-const StyledDecorator = styled.span`
-    width: 20px;
-    height: 20px;
+type StyledDecoratorProps = {
+    $status: Status | undefined;
+};
+
+const StyledDecorator = styled.span<StyledDecoratorProps>`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
-    border: 1px solid gray;
+    border: ${props => {
+        if (!props.$status || props.$status === "active") return "1px solid var(--clr-lt-very-light-grayish-blue)";
+        return "none";
+    }};
+    background-image: ${props => (props.$status === "completed" ? "var(--grad-check-background)" : "none")};
+    cursor: pointer;
 `;
 
-function Decorator({ onClick }: DecoratorProps) {
-    return <StyledDecorator onClick={onClick}></StyledDecorator>;
+function Decorator({ status, onClick }: DecoratorProps) {
+    return (
+        <StyledDecorator $status={status} onClick={onClick}>
+            {status === "completed" && <img src="icon-check.svg" />}
+        </StyledDecorator>
+    );
 }
 
 export default Decorator;
