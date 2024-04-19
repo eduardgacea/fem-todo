@@ -13,15 +13,10 @@ type ContainerProps = {
 };
 
 const Container = styled.div<ContainerProps>`
+    display: flex;
     align-items: center;
     margin-top: var(--size-1000);
     margin-bottom: var(--size-700);
-
-    /* main container and decorator container selector */
-    &,
-    & > div {
-        display: flex;
-    }
 
     /* main container and input selector */
     &,
@@ -29,12 +24,6 @@ const Container = styled.div<ContainerProps>`
         background-color: ${props =>
             props.$theme === "light" ? "var(--clr-white)" : "var(--clr-dt-very-dark-desaturated-blue)"};
         border-radius: var(--size-200);
-    }
-
-    /* decorator container selector */
-    & > div {
-        justify-content: center;
-        flex-basis: var(--size-1200);
     }
 
     /* form selector */
@@ -79,9 +68,7 @@ function NewTodo() {
 
     return (
         <Container $theme={theme}>
-            <div>
-                <Decorator />
-            </div>
+            <Decorator />
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"

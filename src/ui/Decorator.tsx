@@ -15,6 +15,12 @@ type StyledDecoratorProps = {
     $status: Status | undefined;
 };
 
+const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-basis: var(--size-1200);
+`;
+
 const StyledDecorator = styled.span<StyledDecoratorProps>`
     display: flex;
     justify-content: center;
@@ -39,9 +45,11 @@ function Decorator({ status, onClick }: DecoratorProps) {
     const { theme } = useContext(ThemeContext);
 
     return (
-        <StyledDecorator $theme={theme} $status={status} onClick={onClick}>
-            {status === "completed" && <img src="icon-check.svg" />}
-        </StyledDecorator>
+        <Container>
+            <StyledDecorator $theme={theme} $status={status} onClick={onClick}>
+                {status === "completed" && <img src="icon-check.svg" />}
+            </StyledDecorator>
+        </Container>
     );
 }
 

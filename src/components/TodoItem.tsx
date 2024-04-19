@@ -37,12 +37,6 @@ const MainContainer = styled.div<MainContainerProps>`
                 : "var(--clr-dt-very-dark-grayish-blue)"};
 `;
 
-const DecoratorContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    flex-basis: var(--size-1200);
-`;
-
 const DescriptionContainer = styled.div`
     display: flex;
     justify-content: space-between;
@@ -88,9 +82,7 @@ function TodoItem({ todo, i, onDragStart, onDragEnter, onDrop }: TodoItemProps) 
             onDragEnter={handleDragEnter}
             onDragEnd={handleDrop}
         >
-            <DecoratorContainer>
-                <Decorator status={status} onClick={() => toggleState(id)} />
-            </DecoratorContainer>
+            <Decorator status={status} onClick={() => toggleState(id)} />
             <DescriptionContainer>
                 <Description $status={status} $theme={theme}>
                     {description}
