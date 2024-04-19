@@ -102,7 +102,7 @@ function TodoItem({ todo, i, onDragStart, onDragEnter, onDrop }: TodoItemProps) 
                 </Description>
                 {device === "mobile" && (
                     <DeleteIcon>
-                        <img src="icon-cross.svg" onClick={() => removeTodo(id)} />
+                        <img src="icon-cross.svg" onClick={() => removeTodo(id)} alt="delete item icon" />
                     </DeleteIcon>
                 )}
             </DescriptionContainer>

@@ -3,7 +3,7 @@ import { useContext } from "react";
 
 import styled from "styled-components";
 
-const StyledBanner = styled.div`
+const StyledBanner = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,7 +22,7 @@ function Title() {
     return (
         <StyledBanner>
             <h1>TODO</h1>
-            <img src={`icon-${theme === "light" ? "moon" : "sun"}.svg`} onClick={toggleTheme} />
+            <img src={`icon-${theme === "light" ? "moon" : "sun"}.svg`} onClick={toggleTheme} alt="theme toggle icon" />
         </StyledBanner>
     );
 }

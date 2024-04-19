@@ -47,7 +47,7 @@ function Decorator({ status, onClick }: DecoratorProps) {
     return (
         <Container>
             <StyledDecorator $theme={theme} $status={status} onClick={onClick}>
-                {status === "completed" && <img src="icon-check.svg" />}
+                {status === "completed" && <img src="icon-check.svg" alt="check icon" />}
             </StyledDecorator>
         </Container>
     );

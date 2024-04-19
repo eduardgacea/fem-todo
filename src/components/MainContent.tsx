@@ -11,7 +11,7 @@ type ContainerProps = {
     $theme: Theme;
 };
 
-const Container = styled.div<ContainerProps>`
+const Container = styled.main<ContainerProps>`
     background-color: ${props =>
         props.$theme === "light" ? "var(--clr-white)" : "var(--clr-dt-very-dark-desaturated-blue)"};
     box-shadow: var(--shadow-transparent-black);
