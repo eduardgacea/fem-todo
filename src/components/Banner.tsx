@@ -1,12 +1,12 @@
+import { DeviceContext } from "../contexts/DeviceContextProvider";
 import { ThemeContext } from "../contexts/ThemeContextProvider";
-import { useScreenWidth } from "../hooks/useScreenWidth";
-import { MOBILE_BREAKPOINT } from "../config/config";
+import { Device } from "../types/deviceTypes";
 import { useContext } from "react";
 
 import styled from "styled-components";
 
 type BannerProps = {
-    $platform: string;
+    $platform: Device;
     $theme: string;
 };
 
@@ -26,12 +26,10 @@ const StyledBanner = styled.div<BannerProps>`
 `;
 
 function Banner() {
-    const width = useScreenWidth();
-    const platform = width > MOBILE_BREAKPOINT ? "desktop" : ("mobile" as string);
-
+    const { device } = useContext(DeviceContext);
     const { theme } = useContext(ThemeContext);
 
-    return <StyledBanner $platform={platform} $theme={theme} role="banner"></StyledBanner>;
+    return <StyledBanner $platform={device} $theme={theme} role="banner"></StyledBanner>;
 }
 
 export default Banner;

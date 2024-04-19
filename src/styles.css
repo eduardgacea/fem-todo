@@ -23,11 +23,12 @@
     --clr-dt-darkest-grayish-blue: hsl(237, 14%, 26%);
 
     /* typography */
-    --fs-s: 0.95rem;
+    --fs-s: 1rem;
     --fs-m: 1.125rem;
     --fs-l: 1.2rem;
     --ff-primary: "Josefin Sans", sans-serif;
     --fw-regular: 400;
+    --fw-semibold: 600;
     --fw-bold: 700;
 
     /* sizes */

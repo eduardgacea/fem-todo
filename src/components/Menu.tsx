@@ -1,3 +1,4 @@
+import { DeviceContext } from "../contexts/DeviceContextProvider";
 import { ThemeContext } from "../contexts/ThemeContextProvider";
 import { TodosContext } from "../contexts/TodosContextProvider";
 import { Theme } from "../types/themeTypes";
@@ -15,7 +16,7 @@ const StyledMenu = styled.div<StyledMenuProps>`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: var(--size-400) var(--size-700);
+    padding: var(--size-500) var(--size-700);
 
     & > p,
     & > button {
@@ -38,6 +39,7 @@ const StyledMenu = styled.div<StyledMenuProps>`
 
 function Menu() {
     const { theme } = useContext(ThemeContext);
+    const { device } = useContext(DeviceContext);
     const { todos, clearCompleted } = useContext(TodosContext);
 
     const activeItemsCount = todos.reduce((count, todo) => (todo.status === "active" ? ++count : count), 0);
@@ -45,7 +47,7 @@ function Menu() {
     return (
         <StyledMenu $theme={theme}>
             <p>{activeItemsCount} items left</p>
-            <Filters />
+            {device === "desktop" && <Filters />}
             <button onClick={clearCompleted}>Clear Completed</button>
         </StyledMenu>
     );

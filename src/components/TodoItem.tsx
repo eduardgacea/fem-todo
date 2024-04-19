@@ -7,6 +7,8 @@ import { useContext } from "react";
 import Decorator from "../ui/Decorator";
 
 import styled from "styled-components";
+import { MOBILE_BREAKPOINT } from "../config/config";
+import { DeviceContext } from "../contexts/DeviceContextProvider";
 
 type TodoItemProps = {
     todo: Todo;
@@ -49,6 +51,8 @@ const DescriptionContainer = styled.div`
 `;
 
 const Description = styled.p<DescriptionProps>`
+    font-size: var(--fs-s);
+    font-weight: var(--fw-semibold);
     text-decoration: ${props => (props.$status === "active" ? "none" : "line-through")};
     color: ${props => {
         switch (props.$theme) {
@@ -62,10 +66,19 @@ const Description = styled.p<DescriptionProps>`
                     : "var(--clr-dt-very-dark-grayish-blue)";
         }
     }};
+
+    @media (min-width: ${MOBILE_BREAKPOINT}px) {
+        font-size: var(--fs--l);
+    }
+`;
+
+const DeleteIcon = styled.div`
+    margin-left: var(--size-400);
 `;
 
 function TodoItem({ todo, i, onDragStart, onDragEnter, onDrop }: TodoItemProps) {
     const { theme } = useContext(ThemeContext);
+    const { device } = useContext(DeviceContext);
     const { id, description, status } = todo;
     const { removeTodo, toggleState } = useContext(TodosContext);
 
@@ -87,7 +100,11 @@ function TodoItem({ todo, i, onDragStart, onDragEnter, onDrop }: TodoItemProps) 
                 <Description $status={status} $theme={theme}>
                     {description}
                 </Description>
-                <img src="icon-cross.svg" onClick={() => removeTodo(id)} />
+                {device === "mobile" && (
+                    <DeleteIcon>
+                        <img src="icon-cross.svg" onClick={() => removeTodo(id)} />
+                    </DeleteIcon>
+                )}
             </DescriptionContainer>
         </MainContainer>
     );
